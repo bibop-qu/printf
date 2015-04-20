@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/14 14:22:26 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/04/20 15:14:35 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/20 17:43:32 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int		moinsflag(va_list ap, char *str, int *i)
 		else
 			ret += ft_putaddr(&tmp);
 		j = 1;
+	}
+	else
+	{
+		ret = ret + 2;
+		*i = *i + 1;
 	}
 	while (++j < nb)
 		ret += ft_putstring(" ");
