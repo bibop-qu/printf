@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/14 14:22:26 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/03/31 19:26:08 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/20 15:14:35 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,33 @@
 
 int		moinsflag(va_list ap, char *str, int *i)
 {
+	int		j;
+	int		nb;
+	char	*nbr;
+	int		tmp;
+	int		ret;
 
+	ret = 0;
+	tmp = va_arg(ap, int);
+	j = *i;
+	while (ft_isdigit(str[*i]))
+		*i = *i + 1;
+	nbr = ft_strsub(str, j, *i - j);
+	nb = ft_atoi(nbr) - ft_strlen(ft_itoa(tmp));
+	j = -1;
+	if (str[*i] == 'd')
+		ret = ft_putnbr(tmp);
+	else if (str[*i] == 'p')
+	{
+		if (tmp == 0)
+			ret += ft_putaddr(NULL);
+		else
+			ret += ft_putaddr(&tmp);
+		j = 1;
+	}
+	while (++j < nb)
+		ret += ft_putstring(" ");
+	return (ret);
 }
 
 int		ft_flag(va_list ap, char *str, int *i, char *option)
