@@ -6,11 +6,23 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/14 14:22:26 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/04/20 17:43:32 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/22 14:44:44 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+int		moinsp(int tmp)
+{
+	int		ret;
+
+	ret = 0;
+	if (tmp == 0)
+		ret += ft_putaddr(NULL);
+	else
+		ret += ft_putaddr(&tmp);
+	return (ret);
+}
 
 int		moinsflag(va_list ap, char *str, int *i)
 {
@@ -32,26 +44,51 @@ int		moinsflag(va_list ap, char *str, int *i)
 		ret = ft_putnbr(tmp);
 	else if (str[*i] == 'p')
 	{
-		if (tmp == 0)
-			ret += ft_putaddr(NULL);
-		else
-			ret += ft_putaddr(&tmp);
+		ret += moinsp(tmp);
 		j = 1;
-	}
-	else
-	{
-		ret = ret + 2;
-		*i = *i + 1;
 	}
 	while (++j < nb)
 		ret += ft_putstring(" ");
 	return (ret);
 }
 
-int		ft_flag(va_list ap, char *str, int *i, char *option)
+int		plusflag(va_list ap)
+{
+	int		nbr;
+	int		ret;
+
+	nbr = va_arg(ap, int);
+	ret = 0;
+	if (nbr > 0)
+	{
+		ret += ft_putstring("+");
+		ret += ft_putnbr(nbr);
+	}
+	else
+		ret += ft_putnbr(nbr);
+	return (ret);
+}
+
+int		flagdi(va_list ap)
 {
 	int		ret;
 	int		nbr;
+
+	ret = 0;
+	nbr = va_arg(ap, int);
+	if (nbr >= 0)
+	{
+		ret += ft_putstring(" ");
+		ret += ft_putstring(ft_itoa(nbr));
+	}
+	else
+		ret += ft_putstring(ft_itoa(nbr));
+	return (ret);
+}
+
+int		ft_flag(va_list ap, char *str, int *i, char *option)
+{
+	int		ret;
 
 	ret = 0;
 	if (str[*i] == ' ')
@@ -59,16 +96,7 @@ int		ft_flag(va_list ap, char *str, int *i, char *option)
 		if (str[*i + 1] == '%')
 			ret = ft_putstring("%");
 		else if (str[*i + 1] == 'd' || str[*i + 1] == 'i')
-		{
-			nbr = va_arg(ap, int);
-			if (nbr >= 0)
-			{
-				ret += ft_putstring(" ");
-				ret += ft_putstring(ft_itoa(nbr));
-			}
-			else
-				ret += ft_putstring(ft_itoa(nbr));
-		}
+			ret += flagdi(ap);
 		else if (!ft_strchr(option, str[*i + 1]))
 		{
 			ret++;
@@ -76,16 +104,7 @@ int		ft_flag(va_list ap, char *str, int *i, char *option)
 		}
 	}
 	else if (str[*i] == '+')
-	{
-		nbr = va_arg(ap, int);
-		if (nbr > 0)
-		{
-			ret += ft_putstring("+");
-			ret += ft_option(ap, str, *i);
-		}
-		else
-			ret += ft_option(ap, str, *i);
-	}
+		ret += plusflag(ap);
 	else if (str[*i] == '-')
 		ret += moinsflag(ap, str, i);
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/31 15:40:58 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/03/31 15:42:37 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/22 15:06:59 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_putaddr(void *ptr)
 {
-	int		ret;
+	int						ret;
 	unsigned long long int	addr;
 
 	if (ptr == NULL)

@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 20:28:33 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/02/19 02:02:24 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/22 15:06:17 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 char	*ft_base(char *set, unsigned long int val)
 {
-	char *base;
-	unsigned long int quotient;
-	long int size;
-	int		len;
+	char				*base;
+	unsigned long int	quotient;
+	long int			size;
+	int					len;
 
 	size = 0;
 	quotient = val;
 	len = ft_strlen(set);
-	while (quotient != 0)
-	{
+	while (quotient != 0 && ++size > -1)
 		quotient /= len;
-		size++;
-	}
 	base = (char*)malloc(sizeof(char) * size + 1);
 	if (val == 0)
 	{

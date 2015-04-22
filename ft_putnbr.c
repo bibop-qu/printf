@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 11:35:00 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/01/14 20:53:22 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/22 15:13:22 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			ft_putnbr(int n)
 {
-	int		ret;
+	int			ret;
 	long int	nb;
 
 	ret = 0;

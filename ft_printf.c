@@ -6,11 +6,20 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 18:21:11 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/03/31 18:45:21 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/22 15:02:31 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+int		ft_modif(va_list ap, char *str, int *i)
+{
+	int		ret;
+
+	ret = ft_modifier(ap, str, i);
+	*i = *i + 1;
+	return (ret);
+}
 
 int		ft_ap(va_list ap, char *str, int *i)
 {
@@ -31,10 +40,7 @@ int		ft_ap(va_list ap, char *str, int *i)
 		*i = *i + 1;
 	}
 	else if (ft_strchr(modifier, str[*i]))
-	{
-		ret = ft_modifier(ap, str, i);
-		*i = *i +1;
-	}
+		ret = ft_modif(ap, str, i);
 	else if (str[*i] != ' ')
 	{
 		ft_putchar(str[*i]);
