@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/17 16:54:20 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/04/22 16:59:38 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/23 13:45:26 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,15 @@ int		ft_modifier(va_list ap, char *str, int *i)
 		if (str[*i + 1] == 'd' || str[*i + 1] == 'i' || str[*i + 1] == 'D')
 			ret = ft_putlnbr(va_arg(ap, long int));
 		else if (str[*i + 1] == 'u' || str[*i + 1] == 'U')
-			ret = ft_putulnbr(va_arg(ap,  long int));
+			ret = ft_putulnbr(va_arg(ap, long int));
 		else if (str[*i + 1] == 'o' || str[*i + 1] == 'O')
 			ret = ft_putstring(ft_base("01234567", va_arg(ap, long int)));
 		else if (str[*i + 1] == 'x')
-			ret = ft_putstring(ft_base("0123456789abcdef", va_arg(ap, long int)));
+			ret = ft_putstring(ft_base("0123456789abcdef",
+								va_arg(ap, long int)));
 		else if (str[*i + 1] == 'X')
-			ret = ft_putstring(ft_base("0123456789ABCDEF", va_arg(ap, long int)));
+			ret = ft_putstring(ft_base("0123456789ABCDEF",
+								va_arg(ap, long int)));
 		else if (str[*i + 1] == 'c')
 			ret = print_c(ap);
 		else if (str[*i + 1] == 's')
