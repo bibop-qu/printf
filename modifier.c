@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/17 16:54:20 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/04/23 13:45:26 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/27 12:56:22 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,11 @@ int		ft_modifier(va_list ap, char *str, int *i)
 			else if (str[*i + 1] == 'o' || str[*i + 1] == 'O')
 				ret = ft_putstring(ft_base("01234567", va_arg(ap, long int)));
 			else if (str[*i + 1] == 'x')
-				ret = ft_putstring(ft_base("0123456789abcdef", va_arg(ap, long int)));
+				ret = ft_putstring(ft_base("0123456789abcdef",
+									va_arg(ap, long int)));
 			else if (str[*i + 1] == 'X')
-				ret = ft_putstring(ft_base("0123456789ABCDEF", va_arg(ap, long int)));
+				ret = ft_putstring(ft_base("0123456789ABCDEF",
+									va_arg(ap, long int)));
 			else
 				ret = ft_putlnbr(va_arg(ap, long long int));
 		}
@@ -143,9 +145,11 @@ int		ft_modifier(va_list ap, char *str, int *i)
 		else if (str[*i + 1] == 'o' || str[*i + 1] == 'O')
 			ret = ft_putstring(ft_base("01234567", va_arg(ap, long int)));
 		else if (str[*i + 1] == 'x')
-			ret = ft_putstring(ft_base("0123456789abcdef", va_arg(ap, long int)));
+			ret = ft_putstring(ft_base("0123456789abcdef",
+								va_arg(ap, long int)));
 		else if (str[*i + 1] == 'X')
-			ret = ft_putstring(ft_base("0123456789ABCDEF", va_arg(ap, long int)));
+			ret = ft_putstring(ft_base("0123456789ABCDEF",
+								va_arg(ap, long int)));
 		else
 			ret = ft_putlnbr(va_arg(ap, long int));
 	}
@@ -155,9 +159,11 @@ int		ft_modifier(va_list ap, char *str, int *i)
 		else if (str[*i + 1] == 'o' || str[*i + 1] == 'O')
 			ret = ft_putstring(ft_base("01234567", va_arg(ap, long int)));
 		else if (str[*i + 1] == 'x')
-			ret = ft_putstring(ft_base("0123456789abcdef", va_arg(ap, long int)));
+			ret = ft_putstring(ft_base("0123456789abcdef",
+								va_arg(ap, long int)));
 		else if (str[*i + 1] == 'X')
-			ret = ft_putstring(ft_base("0123456789ABCDEF", va_arg(ap, long int)));
+			ret = ft_putstring(ft_base("0123456789ABCDEF",
+								va_arg(ap, long int)));
 		else
 			ret = ft_putlnbr(va_arg(ap, long int));
 	else if (ft_isdigit(str[*i]))
