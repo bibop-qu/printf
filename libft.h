@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 15:32:09 by basle-qu          #+#    #+#             */
-/*   Updated: 2015/02/18 21:24:28 by basle-qu         ###   ########.fr       */
+/*   Updated: 2015/04/28 15:45:34 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-#include <stdarg.h>
+# include <stdarg.h>
 
 void			*ft_memset(void *d, int nb, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -71,8 +71,6 @@ void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 int				ft_putnbr(int n);
 char			*ft_longitoa(long int n);
-unsigned long int		ft_octal(unsigned long int n);
-char			*ft_hexa(unsigned long int decimal, char c);
 int				ft_putaddr(void *ptr);
 int				ft_putstring(char *str);
 int				ft_putlnbr(long int n);

@@ -6,7 +6,7 @@
 #    By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/06 15:15:27 by basle-qu          #+#    #+#              #
-#    Updated: 2015/04/22 15:58:33 by basle-qu         ###   ########.fr        #
+#    Updated: 2015/04/28 15:29:04 by basle-qu         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -74,6 +74,7 @@ option2.c \
 modifier.c \
 special.c \
 modifier2.c \
+modifier3.c \
 
 OBJ = $(SRCS:.c=.o)
 NAME = libftprintf.a
